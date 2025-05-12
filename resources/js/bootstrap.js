@@ -1,4 +1,9 @@
 import axios from 'axios';
-window.axios = axios;
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+axios.defaults.baseURL        = 'http://localhost';  
+// se o seu Laravel rodar em outra porta (ex: 8000), ajuste para 'http://localhost:8000'
+axios.defaults.withCredentials = true;
+axios.defaults.xsrfCookieName  = 'XSRF-TOKEN';
+axios.defaults.xsrfHeaderName  = 'X-XSRF-TOKEN';
+
+export default axios;

@@ -23,8 +23,13 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/posts', function () {
-    return Inertia::render('Posts/Index'); // <- verifica esse caminho!
-    })->middleware('auth');
+        return Inertia::render('Posts/Index');
+    })->name('posts.index');
+
+    // Também crie a rota de criação se ainda não tiver, e dê ->name('posts.create')
+    Route::get('/posts/create', function () {
+        return Inertia::render('Posts/Create');
+    })->name('posts.create');
 });
 
 require __DIR__.'/auth.php';
