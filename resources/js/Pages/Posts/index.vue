@@ -152,7 +152,6 @@ const deletePost = () => {
   postToDelete.value = null
 }
 
-// Navegação Inertia
 const goToCreatePost = () => {
   inertiaRouter.visit('/posts/create')
 }
